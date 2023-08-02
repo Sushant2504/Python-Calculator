@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block container %}
+
+<section id="graphs" class="non_main">
+    <p style="color:rgb(54, 156, 99);">Graph Plotting</p>
+    <form method="post" action='/normal_plot'>
+        {% csrf_token %}
+    <input type="text" id="expr" class="inpt", placeholder="Enter Expression...", name='expr'>
+    <input class="show_res" type="submit", value="="> 
+
+        </form>
+    {% comment %} <p class="input_result"></p> {% endcomment %}
+</section>
+{% endblock container %}
+
+{% block content %}
+
+
+{% if chart %}
+    <img src = "data:image/png;base64, {{chart|safe}}">
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<section id="summerize" class="non_main">
+    <p>Article summerizer</p>
+    
+    <form method="post" action='/summerizer'>
+        {% csrf_token %}
+        {% comment %} {{solution}} {% endcomment %}
+    <input type="text" id="summ" class="inpt", placeholder="Enter Text...", name='summ', style="height: 30%; width: 50%">
+    <input type='text' id='perc' class='inpt', placeholder='', name='text'>
+    <input class="show_res" type="submit", value="Generate"> 
+    </form>
+    {% if summery %}
+
+    <p class="input_result"> {{summery}}</p>
+
+    {% comment %} {% if step_by_step %}
+    <p> step by step solution: </p>
+    {{step_by_step}}
+    {% endif %} {% endcomment %}
+{% endif %}
+{% endblock container %}

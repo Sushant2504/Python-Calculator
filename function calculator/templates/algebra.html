@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+<section id="algebra" class="non_main">
+    <p>Equation solving</p>
+    
+    <form method="post" action='/algebra'>
+        {% csrf_token %}
+        {{solution}}
+    <input type="text" id="expr" class="inpt", placeholder="Enter Expression...", name='expr'>
+    <input class="show_res" type="submit", value="="> 
+    </form>
+    {% if res_exp %}
+
+    <p class="input_result"> {{res_exp}}</p>
+
+    {% comment %} {% if step_by_step %}
+    <p> step by step solution: </p>
+    {{step_by_step}}
+    {% endif %} {% endcomment %}
+{% endif %}
+        
+    
+</section>
+{% endblock container %}
+
+{% block content %}
+
+{% if chart %}
+    <img src = "data:image/png;base64, {{chart|safe}}">
+{% endif %}
+{% endblock content %}

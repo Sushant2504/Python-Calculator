@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+/* body{
+/* height: 100vh; */
+/* background: #ffffff;
+color: white; */
+/* display: flex; */
+/* align-items: center; */
+/* box-sizing: border-box; */
+
+body{
+    height: 100vh;
+    /* background: #1f1f1f; */
+    /* color: white; */
+    /* display: flex; */
+    /* align-items: center; */
+    box-sizing: border-box;
+}
+.name::before{
+    content: '';
+    height: 50px;
+    width: 50px;
+    background-image: url('https://cdn.discordapp.com/attachments/1077579139311222867/1113501988634763344/graph-xxl.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+.name, .name button{
+    margin-top: 5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: xx-large;
+    color: rgb(191, 49, 49);
+    border: 1px dashed gray;
+    background: none;
+    border: none;
+
+}
+.name::after{
+    content: 'Calculator';
+    color: rgb(226, 117, 62);
+}
+
+/* Main Page */
+
+
+#container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transform: scale(1);
+}
+
+#container ul {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    position: absolute;
+    left: 0;
+    /* justify-content: space-around; */
+}
+
+
+/* #container ul li span {
+    display: block;
+} */
+
+ul{
+    list-style: none;
+}
+choices li{
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+
+}
+#container ul:nth-child(1) {
+    font-family: monospace;
+    font-size: 1.5em;
+    padding: 1rem;
+    margin: 1rem;
+    
+}
+
+.choices input{
+    width: 44vh;
+    padding-right: 2vh;
+    font-size: 0.8em;
+    line-height: 7.9vh;
+    text-align: right;
+    border-style: none;
+    background: none;
+    font-family: monospace;
+    border-right: 1px solid violet;
+    transition: all 0.2s ease-in-out;
+    /* position: relative; */
+    
+}
+par5{
+    width: 30vw;
+    margin-top: 5px;
+}
+/*
+.par5, .text5{
+    padding-left: 50vw;
+    font-size: 1.7rem;
+    width: 30vw;
+
+}
+.text5 input{
+    width: 30vw;
+} */
+/* .par5{
+    width: 50vw;
+    position: absolute;
+    left: 0%;
+} */
+.choices span{
+    font-size: 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    /* display: none; */
+    z-index: -2;
+    left: 0px;
+    top: 2%;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    height: 70vh;
+    width: 40vh;
+    pointer-events: none;
+}
+
+.choices input:hover{
+    color: blueviolet;
+    font-size: 1em;
+}
+
+.choices input:hover span {
+    /* display: block; */
+    left: 30vh;
+    opacity: 1;
+
+}
+.par1:hover .text1, .par2:hover .text2, .par3:hover .text3, .par4:hover .text4, .par5:hover .text5{
+    left: 50vh;
+    opacity: 1;
+}
+/* #algebra, #calculus, #graphs{
+    /* display: none; */
+
+/* Equation solving */
+#expression{
+    width: 80vw;
+    border: 3px solid rgb(255, 132, 0);
+    border-radius: 4px;
+    height: 4.4vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0.5em;
+}
+
+p{
+    font-family: monospace;
+    color: rgb(156, 124, 232);
+    font-weight: 600;
+    font-size: 1.3em;
+    margin: 2vh;
+}
+#expression:focus{
+    outline: none;
+}
+
+.show_res{
+    width: 5vh;
+    height: 4.4vh;
+    background-color: rgb(54, 156, 99);
+    color: white;
+    /* text-shadow: 1px 1px 9px white; */
+    font-size: 1.1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+}
+
+.show_res:active{
+    background-color: rgb(35, 111, 68);
+}
+
+.input_result{
+    color: black;
+    font-size: 2.5vh;
+    font-weight: 100;
+}
+.name button{
+    height: 0;
+    margin-top: 0;
+    padding: 0;
+}
+    </style>
+    <title>Django and mpl</title>
+</head>
+<body>
+    <header>
+        <form action="/">
+        <div class="name"> <button href="/main", type="submit"> Function </button></div>
+        </form>
+    </header>
+{% block container %}
+{% endblock container %}
+    
+    <div class="container mt-3">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    
+</body>
+</html>

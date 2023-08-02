@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block container %}
+
+<section id="graphs" class="non_main">
+    <p style="color:rgb(54, 156, 99);">Graph Plotting</p>
+    <form method="post" action='/area_curve'>
+        {% csrf_token %}
+    <span>f(x) = </span>
+
+    <input type="text" id="f" class="inpt", placeholder="Enter Expression...", name='f'>
+    <br/>
+    <span>g(x) = </span>
+
+    <input type="text" id="g" class="inpt", placeholder="Enter Expression...", name='g'>
+    <br/>
+    <span>lower limit = </span>
+    <input type="text" id="l_lim" class="", placeholder="", name='l_lim' style="width=7px;">
+    <br>
+    <span>upper limit = </span>
+    <input type="text" id="u_lim" class="", placeholder="", name='u_lim' style="width=7px;">
+    <input class="show_res" type="submit", value="="> 
+
+        </form>
+    {% comment %} <p class="input_result"></p> {% endcomment %}
+</section>
+{% endblock container %}
+
+{% block content %}
+{% if area %}
+<p>area of graph: {{area}}</p>
+{% endif %}
+
+{% if graph %}
+    <img src = "data:image/png;base64, {{graph|safe}}">
+{% endif %}
+{% endblock content %}

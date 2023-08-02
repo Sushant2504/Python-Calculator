@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block container %}
+
+<section id="graphs" class="non_main">
+    <p style="color:rgb(54, 156, 99);">Graph Plotting</p>
+    <form method="post" action='/tangent_n_normal'>
+        {% csrf_token %}
+    <input type="text" id="expr" class="inpt", placeholder="Enter Expression...", name='expr'>
+    <br/>
+    <span>x-coordinate of tangent = </span>
+    <input type="text" id="x_value" class="", placeholder="", name='x_value' style="width=7px;">
+    <input class="show_res" type="submit", value="="> 
+
+        </form>
+    {% comment %} <p class="input_result"></p> {% endcomment %}
+</section>
+{% endblock container %}
+
+{% block content %}
+{% if tangent %}
+<p>Equation of Tangent: y = {{tangent}}</p>
+{% endif %}
+{% if normal %}
+<p> Equation of normal: y = {{normal}}</p>
+{% endif %}
+
+{% if graph %}
+    <img src = "data:image/png;base64, {{graph|safe}}">
+{% endif %}
+{% endblock content %}

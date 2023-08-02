@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="list-group">
+    <p class="list-group-item list-group-item-action active" style = "background-color: rgb(255, 255, 255); border: none; color: rgb(54, 156, 99); border: 1px solid rgb(54, 156, 99); width: 20%;">
+        Available Options:
+    </p>
+    {% comment %} <a href="#" class="list-group-item list-group-item-action"> </a> {% endcomment %}
+    <form action='/normal_plot'>
+    <input type='submit' href="/normal_plot" class="list-group-item list-group-item-action" value='Normal Function graph Plotting', name='nfgp'>
+    </form>
+    <form action='/tangent_n_normal'>
+        {% csrf_token %}
+
+    <input type = 'submit' href="/tangent_n_normal" class="list-group-item list-group-item-action" name='tnn', value='Tangents and normal at certain point'>
+    </form>
+    <form action='/area_curve'>
+        {% csrf_token %}
+
+    <input type = 'submit' href="/area_curve" class="list-group-item list-group-item-action" name='tnn', value='Area between curves'>
+    </form>
+  </div>
+
+{% endblock container %}
+
+<!-- {% block content %}
+
+
+{% if chart %}
+    <img src = "data:image/png;base64, {{chart|safe}}">
+{% endif %}
+{% endblock content %} -->

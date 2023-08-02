@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+<section id="algebra" class="non_main">
+    <p>Step by step solution</p>
+    
+    <form method="post" action='/steps'>
+        {% csrf_token %}
+        {{solution}}
+    <input type="text" id="expr" class="inpt", placeholder="Enter Expression...", name='expr'>
+    <input class="show_res" type="submit", value="="> 
+    </form>
+    {% if steps %}
+<p>step by step solution </p>
+<p class="input_result"> 
+    {% autoescape off %}
+    {{steps}}
+    {% endautoescape %}
+     </p>
+
+    {% comment %} {{steps}}
+     {% endcomment %}
+     {% comment %} <iframe src="step_solution.xml" xslt="xmlstylesheet.xsl"></iframe> {% endcomment %}
+     
+
+    {% endif %}
+        
+    
+</section>
+{% endblock container %}

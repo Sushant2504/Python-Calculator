@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block container %}
+<section id="container">
+    <ul>
+        <li>
+            <br><br>
+            Mathematics
+
+            <ul class="choices">
+                {% comment %} <li class="par1">
+                    <button href="/wolfram"> Algebra</button>
+                    <span class="text1"> Elementry Basic Mathematical Operations</span>
+                </li> {% endcomment %}
+                <li class="par2">
+                    <form action='/algebra'>
+                    <span class="text2">Integral Calculus, Differential Calculus and Limit of a function</span>
+                    <input type='submit' href="/algebra", value='Calculus & Analysis'>
+                    </form>
+                </li>
+     
+
+                <li class="par3">
+                    <form action='/graph'>
+                        {% csrf_token %}
+                    {% comment %} <button href="/graph", type='submit', name='submit'>Plotting & Graphics</button> {% endcomment %}
+                    <span class="text3">Plotting graphs of functions in 2 variables and 3 variables.</span>
+                        
+                            {% comment %} <input type="text", name="expr", id="expr"> {% endcomment %}
+                            <input type="submit" value="Plotting & Graphics" name="Plot">
+                        </form>
+                </li>
+                <li class="par1">
+                    <form action='/steps'>
+                        {% csrf_token %}
+                    {% comment %} <button href="/steps", type='submit', name='submit'>Plotting & Graphics</button> {% endcomment %}
+                    <span class="text1">For step by step solution</span>
+                        
+                            {% comment %} <input type="text", name="expr", id="expr"> {% endcomment %}
+                            <input type="submit" value="Step By Step solution">
+                        </form>
+                </li>
+                <li class="par5">
+                    Language Tools
+                    <form action='/summerizer'>
+                        {% csrf_token %}
+                    {% comment %} <button href="/summerizer", type='submit', name='submit'>Summerizing an Article</button> {% endcomment %}
+                    <span class="text5">Summerizing an Article</span>
+                        
+                            {% comment %} <input type="text", name="expr", id="expr"> {% endcomment %}
+                            <input type="submit" value="Summary Generator">
+                        </form>
+                </li>     
+    
+            </ul>       
+       
+        </li>
+  
+    </ul>
+
+    <!-- <ul class="side_bar">
+        Text Operations
+        <li class="par3">
+            <form action='/summerizer'>
+                {% csrf_token %}
+            {% comment %} <button href="/summerizer", type='submit', name='submit'>Plotting & Graphics</button> {% endcomment %}
+            <span class="text3">General text summerizer</span>
+                
+                    {% comment %} <input type="text", name="expr", id="expr"> {% endcomment %}
+                    <input type="submit" value="Summery generator">
+                </form>
+        </li>
+    
+    </ul> -->
+
+</section>
+
+{% endblock container %}
+
+{% block content %}
+{% if chart %}
+    <img src = "data:image/png;base64, {{chart|safe}}">
+{% endif %}
+{% endblock content %}
